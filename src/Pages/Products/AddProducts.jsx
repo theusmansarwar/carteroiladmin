@@ -41,6 +41,8 @@ const AddProducts = () => {
   const [short_description, setShortDescription] = useState("");
   const [isVisible, setIsVisible] = useState(true);
   const [bgImage, setbgImage] = useState(null);
+  
+  const [icon, setIcon] = useState(null);
   const [faqs, setFaqs] = useState({
     title: "",
     description: "",
@@ -178,6 +180,15 @@ const AddProducts = () => {
                 : ""
             );
           }
+          if (Products?.icon) {
+            setIcon(
+              Products.icon
+                ? Products.icon.startsWith("http")
+                  ? Products.icon
+                  : baseUrl + Products.icon
+                : ""
+            );
+          }
         }
       } catch (error) {
         console.error("Error fetching Products:", error);
@@ -203,6 +214,7 @@ const AddProducts = () => {
       formData.append("published", isVisible);
       formData.append("bgImage", bgImage ? bgImage.replace(baseUrl, "") : "");
 
+      formData.append("icon", icon ? icon.replace(baseUrl, "") : "");
       // FAQs
       formData.append(
         "faqs",
@@ -391,7 +403,23 @@ const AddProducts = () => {
           error={!!errors.short_description}
           helperText={errors.short_description}
         />
-
+{/* Products bgImage */}
+        <Typography variant="h5">
+          Products Icon{" "}
+          <BsInfoCircle
+            style={{ fontSize: "16px", cursor: "pointer" }}
+            onClick={() => {
+              openinfobox("Upload Products icon", ProductsbgImageimg);
+            }}
+          />
+        </Typography>
+        <UploadFile
+          multiple={true}
+          accept="image/*"
+          initialFile={icon}
+          onUploadComplete={(path) => setIcon(path)}
+          error={errors.icon}
+        />
         {/* Products bgImage */}
         <Typography variant="h5">
           Products bgImage{" "}

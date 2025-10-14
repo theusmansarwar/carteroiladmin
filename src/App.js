@@ -31,7 +31,7 @@ const App = ({ onLogout }) => {
   const allItems = [
     { id: 1, name: "Dashboard", route: "/dashboard", icon: <MdSpaceDashboard /> },
     { id: 2, name: "Leads", route: "/leads", icon: <IoMdContacts /> },
-    { id: 3, name: "Testimonials", route: "/testimonials", icon: <MdReviews /> },
+    // { id: 3, name: "Testimonials", route: "/testimonials", icon: <MdReviews /> },
     // { id: 4, name: "Users", route: "/users", icon: <FaUsers /> },
     { id: 5, name: "Products", route: "/Products", icon: <AiFillProduct /> },
   ];

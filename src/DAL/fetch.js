@@ -28,7 +28,7 @@ export const fetchDashboard = async () => {
 
 export const fetchDashboardChart = async () => {
   const reqObj = {
-    path: "/views/get/count",
+    path: "/view/get/count",
     method: "GET",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("Token")}`,
