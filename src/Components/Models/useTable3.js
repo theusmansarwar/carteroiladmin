@@ -113,7 +113,7 @@ export function useTable3({ attributes3, tableType, data = []  }) {
            />
    
            <Box sx={{ width: "100%", marginBottom:"50px" }}>
-             <Paper sx={{ width: "100%", maxHeight: "95vh", boxShadow: "none" }}>
+             <Paper sx={{ width: "100%", Height: "fit-content", boxShadow: "none" }}>
                <Toolbar sx={{ display: "flex", justifyContent: "space-between"  }}>
                  <Typography
                    variant="h5"
