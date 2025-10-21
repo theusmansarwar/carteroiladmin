@@ -28,7 +28,7 @@ const UploadFile = ({
   accept = "image/*",
   onUploadComplete,
   initialFile = null, // relative path or full URL
-   error = "",
+  error = "",
 }) => {
   const [fileObj, setFileObj] = useState(null);
   const inputRef = useRef(null);
@@ -135,20 +135,24 @@ const UploadFile = ({
 
   return (
     <Box>
-      <Button component="label" variant="contained" startIcon={<CloudUploadIcon />} sx={{backgroundColor:"var(--background-color)"}}>
+      <Button
+        component="label"
+        variant="contained"
+        startIcon={<CloudUploadIcon />}
+        sx={{ backgroundColor: "var(--background-color)" }}
+      >
         Upload file
-        <VisuallyHiddenInput ref={inputRef} accept={accept} onChange={handleSelectFile} />
+        <VisuallyHiddenInput
+          ref={inputRef}
+          accept={accept}
+          onChange={handleSelectFile}
+        />
       </Button>
-{error && (
-  <Typography
-    variant="caption"
-    color="error"
-    display="block"
-    mt={0.5}
-  >
-    {error}
-  </Typography>
-)}
+      {error && (
+        <Typography variant="caption" color="error" display="block" mt={0.5}>
+          {error}
+        </Typography>
+      )}
       {fileObj && (
         <Box
           sx={{
@@ -165,10 +169,23 @@ const UploadFile = ({
             <img
               src={fileObj.preview}
               alt="preview"
-              style={{ width: "100%", height: "100px", objectFit: "cover", borderRadius: "4px" }}
+              style={{
+                width: "100%",
+                height: "100px",
+                objectFit:
+                  fileObj.file?.type === "image/svg+xml" ? "contain" : "cover",
+                borderRadius: "4px",
+                backgroundColor: "#f9f9f9",
+              }}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "/fallback.png"; // optional fallback image
+              }}
             />
           ) : (
-            <Typography variant="body2" noWrap>{fileObj.file?.name}</Typography>
+            <Typography variant="body2" noWrap>
+              {fileObj.file?.name}
+            </Typography>
           )}
 
           <IconButton
@@ -181,16 +198,33 @@ const UploadFile = ({
 
           {fileObj.uploading ? (
             <Box textAlign="center" mt={1}>
-              <CircularProgress variant="determinate" value={fileObj.progress} />
-              <Typography variant="caption" display="block">{fileObj.progress}%</Typography>
-              <Typography variant="caption" display="block">{fileObj.speed} | {fileObj.eta}</Typography>
+              <CircularProgress
+                variant="determinate"
+                value={fileObj.progress}
+              />
+              <Typography variant="caption" display="block">
+                {fileObj.progress}%
+              </Typography>
+              <Typography variant="caption" display="block">
+                {fileObj.speed} | {fileObj.eta}
+              </Typography>
             </Box>
           ) : fileObj.progress === 100 && fileObj.uploadedPath ? (
-            <Typography variant="caption" display="block" color="success.main" textAlign="center">
+            <Typography
+              variant="caption"
+              display="block"
+              color="success.main"
+              textAlign="center"
+            >
               Uploaded
             </Typography>
           ) : (
-            <Button fullWidth size="small" sx={{ mt: 1 }} onClick={handleUpload}>
+            <Button
+              fullWidth
+              size="small"
+              sx={{ mt: 1 }}
+              onClick={handleUpload}
+            >
               Start Upload
             </Button>
           )}
