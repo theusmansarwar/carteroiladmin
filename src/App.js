@@ -95,7 +95,7 @@ const App = ({ onLogout }) => {
           <Route path="/Products" element={<Products />} />
           <Route path="/add-Products" element={<AddProducts />} />
           <Route path="/edit-Products/:id" element={<AddProducts />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<Navigate to="/dashboard" />} />
         </Routes>
       </div>
     </div>
