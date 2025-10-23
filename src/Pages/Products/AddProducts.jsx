@@ -77,8 +77,6 @@ const AddProducts = () => {
     items: [],
     image1: "",
     image2: "",
-    rating: "",
-    noOfRatings: "",
     published: false,
   });
 
@@ -154,8 +152,7 @@ const AddProducts = () => {
               title: Products.innovation.title || "",
               description: Products.innovation.description || "",
               yearsOfExperience: Products.innovation.yearsOfExperience || "",
-              rating: Products.innovation.rating || "",
-              noOfRatings: Products.innovation.noOfRatings || "",
+ 
               items: Products.innovation.items || [],
               image1: Products.innovation.image1
                 ? Products.innovation.image1.startsWith("http")
@@ -261,8 +258,7 @@ const AddProducts = () => {
           title: innovation.title,
           description: innovation.description,
           yearsOfExperience: innovation.yearsOfExperience,
-          rating: innovation.rating,
-          noOfRatings: innovation.noOfRatings,
+        
           published: innovation.published,
           items: innovation.items || [],
           image1: innovation.image1.replace(baseUrl, ""),
@@ -526,34 +522,7 @@ const AddProducts = () => {
                   })
                 }
               />
-              <TextField
-                fullWidth
-                type="number"
-                label="Rating"
-                value={innovation.rating}
-                error={!!errors["innovation.rating"]}
-                helperText={errors["innovation.rating"]}
-                onChange={(e) =>
-                  setInnovation({
-                    ...innovation,
-                    rating: e.target.value,
-                  })
-                }
-              />
-              <TextField
-                fullWidth
-                type="number"
-                label="noOfRatings"
-                value={innovation.noOfRatings}
-                error={!!errors["innovation.noOfRatings"]}
-                helperText={errors["innovation.noOfRatings"]}
-                onChange={(e) =>
-                  setInnovation({
-                    ...innovation,
-                    noOfRatings: e.target.value,
-                  })
-                }
-              />
+           
 
               {/* Items (comma separated) */}
               <TextField
