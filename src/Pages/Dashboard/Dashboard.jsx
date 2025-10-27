@@ -52,41 +52,8 @@ const Dashboard = () => {
                 <p>Total Leads</p>
               </div>
             </div>
-               <div className="card0">
-              <HiMiniUsers className="card-icon" />
-              <div className="card-lower-section">
-                <h3>{data.todayApplications}</h3>
-                <p>Today Application</p>
-              </div>
-            </div>
-            <div className="card2">
-              <HiMiniUsers className="card-icon" />
-              <div className="card-lower-section">
-                <h3>{data.yesterdayApplications}</h3>
-                <p>Yesterday Applications</p>
-              </div>
-            </div>
-            <div className="card3">
-              <HiMiniUsers className="card-icon" />
-              <div className="card-lower-section">
-                <h3>{data.totalApplications}</h3>
-                <p>Total Application</p>
-              </div>
-            </div>
-            <div className="card4">
-              <MdOutlineArticle className="card-icon" />
-              <div className="card-lower-section">
-                <h3>{data.totalBlogs}</h3>
-                <p>Total Blogs</p>
-              </div>
-            </div>
-            <div className="card5">
-              <MdOutlineInsertComment className="card-icon" />
-              <div className="card-lower-section">
-                <h3>{data.totalComments}</h3>
-                <p>Total Comments</p>
-              </div>
-            </div>
+             
+          
             <div className="card0">
               <FaRegEye className="card-icon" />
               <div className="card-lower-section">
