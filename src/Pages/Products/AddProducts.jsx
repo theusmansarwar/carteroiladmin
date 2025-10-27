@@ -35,6 +35,7 @@ const AddProducts = () => {
   const [infoboximage, setInfoBoxImage] = useState(false);
 
   const [title, setTitle] = useState("");
+  const [metaTitle, setMetaTitle] = useState("");
   const [description, setDescription] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
   const [slug, setSlug] = useState("");
@@ -99,6 +100,7 @@ const AddProducts = () => {
           setSlug(Products.slug || "");
           setShortDescription(Products.short_description || "");
           setIsVisible(Products.published || false);
+          setMetaTitle(Products.metaTitle || "")
           if (Products.faqs) {
             setFaqs({
               title: Products.faqs.title || "",
@@ -204,6 +206,7 @@ const AddProducts = () => {
     try {
       const formData = new FormData();
       formData.append("title", title);
+      formData.append("metaTitle", metaTitle);
       formData.append("description", description);
       formData.append("short_description", short_description);
       formData.append("metaDescription", metaDescription);
@@ -377,7 +380,14 @@ const AddProducts = () => {
           error={!!errors.title}
           helperText={errors.title}
         />
-
+ <TextField
+          fullWidth
+          label="Meta Title"
+          value={metaTitle}
+          onChange={(e) => setMetaTitle(e.target.value)}
+          error={!!errors.metaTitle}
+          helperText={errors.metaTitle}
+        />
         {/* Meta Description */}
         <TextField
           fullWidth

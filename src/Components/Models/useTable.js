@@ -18,7 +18,6 @@ import {
   InputAdornment,
   Avatar,
 } from "@mui/material";
-import AddUser from "./addUser";
 import ViewLeads from "./viewLeads";
 import { baseUrl } from "../../Config/Config";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -210,13 +209,7 @@ export function useTable({ attributes, tableType, limitPerPage = 25 }) {
           refreshdata={fetchData}
         />
       
-        <AddUser
-          open={openUserModal}
-          setOpen={setOpenUserModal}
-          Modeltype={modeltype}
-          Modeldata={modelData}
-          onResponse={handleResponse}
-        />
+      
        
 
         <DeleteModal
