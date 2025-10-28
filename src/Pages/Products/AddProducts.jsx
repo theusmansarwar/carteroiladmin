@@ -6,8 +6,16 @@ import { createNewProducts } from "../../DAL/create";
 import { updateProducts } from "../../DAL/edit";
 import { FaCircleInfo } from "react-icons/fa6";
 import { BsInfoCircle } from "react-icons/bs";
-import faqssectionimg from "../../Assets/Faqssection.png";
-import ProductsbgImageimg from "../../Assets/serviceiconimg.png";
+import faqssectionimg from "../../Assets/faqs.png";
+
+import performanceimage from "../../Assets/performancesection.png";
+import productsection from "../../Assets/productsection.png";
+import ProductsbgImageimg from "../../Assets/homepageproducts.png";
+import industrialinovation from "../../Assets/inovationsection.png";
+
+import benefitssection from "../../Assets/benifits.png";
+
+import ProductsbgImageimg2 from "../../Assets/productheader.png";
 import {
   Box,
   Button,
@@ -432,7 +440,7 @@ const AddProducts = () => {
           <BsInfoCircle
             style={{ fontSize: "16px", cursor: "pointer" }}
             onClick={() => {
-              openinfobox("Upload Products bgImage", ProductsbgImageimg);
+              openinfobox("Upload Products bgImage", ProductsbgImageimg2);
             }}
           />
         </Typography>
@@ -485,7 +493,7 @@ const AddProducts = () => {
                   onClick={() => {
                     openinfobox(
                       "Industrial Innovation Section",
-                      faqssectionimg
+                      industrialinovation
                     );
                   }}
                 />
@@ -595,13 +603,13 @@ const AddProducts = () => {
               }}
             >
               <Typography variant="h5">
-                Industrial Innovation Section{" "}
+                Performance Section{" "}
                 <BsInfoCircle
                   style={{ fontSize: "16px", cursor: "pointer" }}
                   onClick={() => {
                     openinfobox(
-                      "Industrial Innovation Section",
-                      faqssectionimg
+                      "Performance Section",
+                      performanceimage
                     );
                   }}
                 />
@@ -666,7 +674,12 @@ const AddProducts = () => {
                 padding: "20px",
               }}
             >
-              <Typography variant="h5">Benefits Section</Typography>
+              <Typography variant="h5">Benefits Section  <BsInfoCircle
+            style={{ fontSize: "16px", cursor: "pointer" }}
+            onClick={() => {
+              openinfobox("Benefits Section", benefitssection);
+            }}
+          /></Typography>
 
               {/* Description */}
               <TextField
@@ -810,7 +823,7 @@ const AddProducts = () => {
                 <BsInfoCircle
                   style={{ fontSize: "16px", cursor: "pointer" }}
                   onClick={() => {
-                    openinfobox("Products Section", faqssectionimg);
+                    openinfobox("Products Section", productsection);
                   }}
                 />
               </Typography>
